@@ -2,13 +2,12 @@ public class Task {
 
     protected final String taskName;
     protected final String taskDescription;
-    protected final int id;
+    protected int id;
     protected Status taskStatus;
 
-    public Task(String taskName, String taskDescription, int id) {
+    public Task(String taskName, String taskDescription) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
-        this.id = id;
         this.taskStatus = Status.NEW;
     }
 
@@ -32,6 +31,10 @@ public class Task {
         this.taskStatus = taskStatus;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -44,4 +47,5 @@ public class Task {
     public int hashCode() {
         return id;
     }
+
 }

@@ -14,51 +14,45 @@ public class TaskManager {
         epicsMap = new HashMap<>();
     }
 
-    public int getAndIncrementId() {
-        return taskId++;
-    }
-
-    public <T> void addIntoMap(Map<Integer, T> map, T t) {
-        var task = (Task)t;
-        if (task == null || map.containsKey(task.getId()) || task.getId() == 0) {
+    public void createTask(Task task) {
+        if (task == null) {
             return;
         }
-
-        map.put(task.getId(), t);
-    }
-
-    public void createTask(Task task) {
-        addIntoMap(tasksMap, task);
+        int newId = this.getAndIncrementId();
+        task.setId(newId);
+        tasksMap.put(newId, task);
     }
 
     public void createEpic(Epic epic) {
-        addIntoMap(epicsMap, epic);
-    }
-
-    public void createSubtask(Subtask subtask) {
-        if (subtask == null || !epicsMap.containsKey(subtask.getEpicId()) || subtask.getId() == 0) {
+        if (epic == null) {
             return;
         }
 
-        epicsMap.get(subtask.getEpicId()).addSubtask(subtask);
+        int newId = this.getAndIncrementId();
+        epic.setId(newId);
+        epicsMap.put(newId, epic);
     }
 
-    public Map<Integer, Task> getTasksMap() {
-        return tasksMap;
-    }
-
-    public Map<Integer, Epic> getEpicsMap() {
-        return epicsMap;
-    }
-
-    public Map<Integer, Subtask> getSubtasksMap() {
-        Map<Integer, Subtask> subtasks = new HashMap<>();
-        for (Epic epic : epicsMap.values()) {
-            for (Subtask subtask : epic.getSubtasks()) {
-                subtasks.put(subtask.getId(), subtask);
-            }
+    public void createSubtask(Subtask subtask) {
+        if (subtask == null) {
+            return;
         }
-        return subtasks;
+
+        int newId = this.getAndIncrementId();
+        subtask.setId(newId);
+        epicsMap.get(subtask.getEpicId()).addSubtask(newId, subtask);
+    }
+
+    public List<Task> getTasks() {
+        return tasksMap.values().stream().toList();
+    }
+
+    public List<Epic> getEpics() {
+        return epicsMap.values().stream().toList();
+    }
+
+    public List<Subtask> getSubtasks() {
+        return this.getSubtasksMap().values().stream().toList();
     }
 
     public Task getTaskById(int id) {
@@ -74,7 +68,7 @@ public class TaskManager {
         return subtasksMap.get(id);
     }
 
-    public List<Subtask> getSubtasksForEpic(int epicId) {
+    public List<Subtask> getSubtasksOfEpic(int epicId) {
         return epicsMap.get(epicId).getSubtasks();
     }
 
@@ -139,5 +133,21 @@ public class TaskManager {
         epicsMap.get(subtask.getEpicId()).updateSubtask(subtask);
     }
 
+/*  Ранее было реализовано через передачу результата getAndIncrementId в конструктор Task
+    и дочерних классов, поскольку так мы имели бы возможность только единожды задавать номер задачи
+    (при создании).
+    При текущей реализации у нас есть setter, и номер задачи может быть изменен извне в любой момент. */
+    private int getAndIncrementId() {
+        return taskId++;
+    }
 
+    private Map<Integer, Subtask> getSubtasksMap() {
+        Map<Integer, Subtask> subtasks = new HashMap<>();
+        for (Epic epic : epicsMap.values()) {
+            for (Subtask subtask : epic.getSubtasks()) {
+                subtasks.put(subtask.getId(), subtask);
+            }
+        }
+        return subtasks;
+    }
 }
