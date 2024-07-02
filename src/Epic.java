@@ -1,13 +1,23 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Epic extends Task {
 
-    private final HashMap<Integer, Subtask> subtasksMap;
+    private final Map<Integer, Subtask> subtasksMap;
 
     public Epic(String taskName, String taskDescription) {
         super(taskName, taskDescription);
         subtasksMap = new HashMap<>();
+    }
+
+    public Epic(Epic epic) {
+        super(epic.getTaskName(), epic.getTaskDescription());
+        setTaskStatus(epic.getTaskStatus());
+        subtasksMap = new HashMap<>();
+        epic.subtasksMap.forEach((id, subtask) -> {
+            subtasksMap.put(id, new Subtask(subtask));
+        });
     }
 
     public void addSubtask(int id, Subtask subtask) {
@@ -47,8 +57,6 @@ public class Epic extends Task {
         throw new RuntimeException("Epic status cannot be changed manually");
     }
 
-/*    Ранее было реализовано пересчитывание статуса в момент его получения, поскольку
-    так мы всегда были бы уверены, что статус у нас актуален*/
     private void updateEpicStatus() {
         int subtaskNew = 0;
         int subtaskDone = 0;
