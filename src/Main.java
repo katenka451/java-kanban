@@ -41,18 +41,18 @@ public class Main {
 
         Task findEpic1 = manager.getEpicById(epic1.getId());
         Task findTask2 = manager.getTaskById(task2.getId());
-        Task findSubtask1_1 = manager.getSubtaskById(subtask1ForEpic1.getId());
+        Task findSubtask1ForEpic1 = manager.getSubtaskById(subtask1ForEpic1.getId());
         Task findEpic2 = manager.getEpicById(epic2.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
-        Task findSubtask1_3 = manager.getSubtaskById(subtask3ForEpic1.getId());
+        Task findSubtask3ForEpic1 = manager.getSubtaskById(subtask3ForEpic1.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
-        Task findSubtask1_2 = manager.getSubtaskById(subtask2ForEpic1.getId());
+        Task findSubtask2ForEpic1 = manager.getSubtaskById(subtask2ForEpic1.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
         Task findTask1 = manager.getTaskById(task1.getId());
         findTask1 = manager.getTaskById(task1.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
-        findSubtask1_3 = manager.getSubtaskById(subtask3ForEpic1.getId());
+        findSubtask3ForEpic1 = manager.getSubtaskById(subtask3ForEpic1.getId());
         findTask2 = manager.getTaskById(task2.getId());
         printHistory(manager);
 
