@@ -13,7 +13,8 @@ public class Epic extends Task {
 
     public Epic(Epic epic) {
         super(epic.getTaskName(), epic.getTaskDescription());
-        setTaskStatus(epic.getTaskStatus());
+        this.taskStatus = epic.getTaskStatus();
+        this.id = epic.getId();
         subtasksMap = new HashMap<>();
         epic.subtasksMap.forEach((id, subtask) -> {
             subtasksMap.put(id, new Subtask(subtask));

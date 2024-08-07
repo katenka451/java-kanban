@@ -2,7 +2,6 @@
 public class Main {
 
     public static void main(String[] args) {
-        //По ТЗ неясно, нужно ли оставлять код для тестирования. Решила оставить
         TaskManager manager = Managers.getDefault();
 
         Task task1 = new Task(
@@ -19,62 +18,49 @@ public class Main {
                 "Epic1",
                 "Test epic1");
         manager.createEpic(epic1);
-        Subtask subtask1_1 = new Subtask(
+        Subtask subtask1ForEpic1 = new Subtask(
                 "Subtask 1.1",
                 "Test subtask 1.1",
                 epic1.getId());
-        manager.createSubtask(subtask1_1);
-        Subtask subtask1_2 = new Subtask(
+        manager.createSubtask(subtask1ForEpic1);
+        Subtask subtask2ForEpic1 = new Subtask(
                 "Subtask 1.2",
                 "Test subtask 1.2",
                 epic1.getId());
-        manager.createSubtask(subtask1_2);
+        manager.createSubtask(subtask2ForEpic1);
+        Subtask subtask3ForEpic1 = new Subtask(
+                "Subtask 1.3",
+                "Test subtask 1.3",
+                epic1.getId());
+        manager.createSubtask(subtask3ForEpic1);
 
         Epic epic2 = new Epic(
                 "Epic2",
                 "Test epic2");
         manager.createEpic(epic2);
-        Subtask subtask2_1 = new Subtask(
-                "Subtask 2.1",
-                "Test subtask 2.1",
-                epic2.getId());
-        manager.createSubtask(subtask2_1);
 
-        printAllTasks(manager);
-
+        Task findEpic1 = manager.getEpicById(epic1.getId());
         Task findTask2 = manager.getTaskById(task2.getId());
-        Task findSubtask1 = manager.getSubtaskById(subtask1_1.getId());
+        Task findSubtask1ForEpic1 = manager.getSubtaskById(subtask1ForEpic1.getId());
         Task findEpic2 = manager.getEpicById(epic2.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
+        Task findSubtask3ForEpic1 = manager.getSubtaskById(subtask3ForEpic1.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
-        findEpic2 = manager.getEpicById(epic2.getId());
+        Task findSubtask2ForEpic1 = manager.getSubtaskById(subtask2ForEpic1.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
         findEpic2 = manager.getEpicById(epic2.getId());
         Task findTask1 = manager.getTaskById(task1.getId());
         findTask1 = manager.getTaskById(task1.getId());
+        findEpic2 = manager.getEpicById(epic2.getId());
+        findSubtask3ForEpic1 = manager.getSubtaskById(subtask3ForEpic1.getId());
         findTask2 = manager.getTaskById(task2.getId());
+        printHistory(manager);
 
-        printAllTasks(manager);
+        manager.deleteSubtaskById(subtask3ForEpic1.getId());
+        printHistory(manager);
 
-        task1.setTaskStatus(Status.IN_PROGRESS);
-        manager.updateTask(task1);
-
-        subtask1_1.setTaskStatus(Status.DONE);
-        manager.updateSubtask(subtask1_1);
-
-        System.out.println("------------------");
-        printAllTasks(manager);
-
-        manager.deleteSubtaskById(subtask1_1.getId());
-
-        System.out.println("------------------");
-        printAllTasks(manager);
-
-        manager.deleteTaskById(task2.getId());
-        manager.deleteEpicById(epic2.getId());
-
-        System.out.println("------------------");
-        printAllTasks(manager);
+        manager.deleteEpicById(epic1.getId());
+        printHistory(manager);
 
     }
 
@@ -94,6 +80,15 @@ public class Main {
                         " (" + subtask.getTaskDescription() + "), статус - " + subtask.getTaskStatus());
             }
         }
+        System.out.println("------------------");
+        System.out.println("История:");
+        for (Task task : manager.getHistory()) {
+            System.out.println(task.getTaskName());
+        }
+        System.out.println("------------------");
+    }
+
+    static void printHistory(TaskManager manager) {
         System.out.println("------------------");
         System.out.println("История:");
         for (Task task : manager.getHistory()) {

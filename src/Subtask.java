@@ -10,6 +10,7 @@ public class Subtask extends Task {
     public Subtask(Subtask subtask) {
         super(subtask.getTaskName(), subtask.getTaskDescription());
         setTaskStatus(subtask.getTaskStatus());
+        this.id = subtask.getId();
         this.epicId = subtask.getEpicId();
     }
 

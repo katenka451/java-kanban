@@ -143,4 +143,84 @@ class InMemoryTaskManagerTest {
     В текущей реализации (одобренной на прошлом 4-м спринте), не было функционала, который реализовывал бы возможность
     как задавать Id задачи извне, так и получать сгенерированный Id. Пока оставила, как есть. */
 
+    @Test
+    void isSubtasksDeletedFromEpics() {
+        Epic epic = new Epic(
+                "Epic1",
+                "Test epic1");
+        taskManager.createEpic(epic);
+        Subtask subtask1 = new Subtask(
+                "Subtask 1",
+                "Test subtask 1",
+                epic.getId());
+        taskManager.createSubtask(subtask1);
+        Subtask subtask2 = new Subtask(
+                "Subtask 2",
+                "Test subtask 2",
+                epic.getId());
+        taskManager.createSubtask(subtask2);
+
+        int deletedSubtaskId = subtask1.getId();
+        taskManager.deleteSubtaskById(deletedSubtaskId);
+        assertFalse(epic.hasSubtask(deletedSubtaskId), "В эпике остаются неактуальные сабтаски");
+    }
+
+    @Test
+    void isEpicDeletedFromHistoryWithSubtasks() {
+        Epic epic = new Epic(
+                "Epic1",
+                "Test epic1");
+        taskManager.createEpic(epic);
+        Subtask subtask1 = new Subtask(
+                "Subtask 1",
+                "Test subtask 1",
+                epic.getId());
+        taskManager.createSubtask(subtask1);
+        Subtask subtask2 = new Subtask(
+                "Subtask 2",
+                "Test subtask 2",
+                epic.getId());
+        taskManager.createSubtask(subtask2);
+
+        taskManager.getEpicById(epic.getId());
+        taskManager.getSubtaskById(subtask1.getId());
+        taskManager.getSubtaskById(subtask2.getId());
+
+        List<Task> history = taskManager.getHistory();
+        assertNotNull(history, "История пустая.");
+        assertEquals(history.size(), 3, "В историю не сохраняются данные эпиков и/или сабтасков");
+
+        taskManager.deleteEpicById(epic.getId());
+        history = taskManager.getHistory();
+        assertEquals(history.size(), 0, "Из истории не удаляются данные эпиков и/или сабтасков");
+    }
+
+    @Test
+    void isTasksAddedToHistoryInCorrectOrder() {
+        Task task1 = new Task("Test Task 1", "Test Task 1 description");
+        taskManager.createTask(task1);
+
+        Task task2 = new Task("Test Task 2", "Test Task 2 description");
+        taskManager.createTask(task2);
+
+        taskManager.getTaskById(task2.getId());
+        taskManager.getTaskById(task1.getId());
+
+        List<Task> history = taskManager.getHistory();
+        assertNotNull(history, "История пустая.");
+        assertEquals(history.getFirst().getId(), task1.getId(), "История запросов сохраняется в некорректном порядке");
+
+    }
+
+    /*Касательно вопроса "С помощью сеттеров экземпляры задач позволяют изменить любое своё поле,
+    но это может повлиять на данные внутри менеджера."
+    В текущей реализации не любое поле, а только id и статус (но изменение статуса должно быть доступно для всех, кроме
+    эпиков).
+    Поскольку решение построено таким образом, что id задачи задается извне через TaskManager, и следовательно,
+    сеттер для id должен быть доступен в TaskManager, то как вариант, сделать этот сеттер
+    protected и поделить все классы по пакетам. TaskManager и классы Task/Subtask/Epic сложить в один пакет, а некий обработчик
+    (пока это у нас Main) - в другой. Таким образом изменение id будет доступно только для наследников, либо
+    классов внутри нашего нового пакета (в том числе, TaskManager).
+    */
+
 }
