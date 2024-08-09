@@ -4,8 +4,8 @@ import java.util.Map;
 
 public class InMemoryTaskManager implements TaskManager {
 
-    private final Map<Integer, Task> tasksMap;
-    private final Map<Integer, Epic> epicsMap;
+    protected final Map<Integer, Task> tasksMap;
+    protected final Map<Integer, Epic> epicsMap;
     private final HistoryManager historyManager;
     private int taskId;
 
@@ -89,6 +89,21 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public List<Subtask> getSubtasksOfEpic(int epicId) {
         return epicsMap.get(epicId).getSubtasks();
+    }
+
+    @Override
+    public boolean isTaskExists(int id) {
+        return tasksMap.containsKey(id);
+    }
+
+    @Override
+    public boolean isEpicExists(int id) {
+        return epicsMap.containsKey(id);
+    }
+
+    @Override
+    public boolean isSubtaskExists(int id) {
+        return this.getSubtasksMap().containsKey(id);
     }
 
     @Override
@@ -181,6 +196,10 @@ public class InMemoryTaskManager implements TaskManager {
     @Override
     public List<Task> getHistory() {
         return historyManager.getHistory();
+    }
+
+    protected void setTaskId(int taskId) {
+        this.taskId = taskId;
     }
 
     private int getAndIncrementId() {

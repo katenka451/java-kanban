@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af442682-3d5c-45e8-af2a-3f6c02057e04" name="Changes" comment="sprint7/dev fix project">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="sprint7/dev tasks tracker with file storage" />
+        <option name="rewordedMessage" value="sprint7/dev tasks tracker with file storage" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="bf631162018a86fef3e10f48ab7db0411e297124" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2i0QjeYEmGQF5RnFgpjXqpjbNEn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FileBackedTaskManager.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.FileBackedTaskManagerTest.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile.executor": "Run",
+    "JUnit.InMemoryHistoryManagerTest.executor": "Run",
+    "JUnit.InMemoryTaskManagerTest.executor": "Run",
+    "JUnit.ManagersTest.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "create.test.in.the.same.root": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Projects/java-kanban",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
+    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileBackedTaskManagerTest.loadAndSaveEmptyFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
+      <option name="METHOD_NAME" value="loadAndSaveEmptyFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryHistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="InMemoryHistoryManagerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+      <item itemvalue="JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile" />
+      <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
+      <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
+        <item itemvalue="JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af442682-3d5c-45e8-af2a-3f6c02057e04" name="Changes" comment="" />
+      <created>1718625150203</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718625150203</updated>
+    </task>
+    <task id="LOCAL-00001" summary="sprint4/dev tasks tracker v1">
+      <option name="closed" value="true" />
+      <created>1718798586874</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1718798586874</updated>
+    </task>
+    <task id="LOCAL-00002" summary="sprint4/fix tasks tracker v1 (corrections according to remarks)">
+      <option name="closed" value="true" />
+      <created>1718871137358</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1718871137358</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sprint5/dev tasks tracker v2">
+      <option name="closed" value="true" />
+      <created>1719953009227</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1719953009227</updated>
+    </task>
+    <task id="LOCAL-00004" summary="sprint6/dev tasks tracker">
+      <option name="closed" value="true" />
+      <created>1721828732963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721828732963</updated>
+    </task>
+    <task id="LOCAL-00005" summary="sprint6/dev tasks tracker (code style fix)">
+      <option name="closed" value="true" />
+      <created>1721829037893</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721829037893</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sprint6/dev tasks tracker (code style fix 2)">
+      <option name="closed" value="true" />
+      <created>1721829370264</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721829370264</updated>
+    </task>
+    <task id="LOCAL-00007" summary="sprint6/dev tasks tracker (code style fix 3)">
+      <option name="closed" value="true" />
+      <created>1721829615052</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721829615052</updated>
+    </task>
+    <task id="LOCAL-00008" summary="sprint7/dev tasks tracker with file storage">
+      <option name="closed" value="true" />
+      <created>1723200333639</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1723200333639</updated>
+    </task>
+    <task id="LOCAL-00009" summary="sprint7/dev fix project">
+      <option name="closed" value="true" />
+      <created>1723201361113</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723201361113</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="sprint_7-solution-in-file-manager" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sprint4/dev tasks tracker v1" />
+    <MESSAGE value="sprint4/dev tasks tracker v1 (corrections according to remarks)" />
+    <MESSAGE value="sprint4/fix tasks tracker v1 (corrections according to remarks)" />
+    <MESSAGE value="sprint5/dev tasks tracker v2" />
+    <MESSAGE value="sprint6/dev tasks tracker" />
+    <MESSAGE value="sprint6/dev tasks tracker (code style fix)" />
+    <MESSAGE value="sprint6/dev tasks tracker (code style fix 2)" />
+    <MESSAGE value="sprint6/dev tasks tracker (code style fix 3)" />
+    <MESSAGE value="sprint7/dev fix project" />
+    <MESSAGE value="sprint7/dev tasks tracker with file storage" />
+    <option name="LAST_COMMIT_MESSAGE" value="sprint7/dev tasks tracker with file storage" />
+  </component>
+</project>

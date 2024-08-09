@@ -22,6 +22,12 @@ public interface TaskManager {
 
     List<Subtask> getSubtasksOfEpic(int epicId);
 
+    boolean isTaskExists(int id);
+
+    boolean isEpicExists(int id);
+
+    boolean isSubtaskExists(int id);
+
     void updateTask(Task task);
 
     void updateEpic(Epic epic);
