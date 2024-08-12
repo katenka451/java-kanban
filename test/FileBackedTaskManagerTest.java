@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,21 +38,7 @@ class FileBackedTaskManagerTest {
     void saveSeveralTasks() throws Exception {
         var taskManager = FileBackedTaskManager.loadFromFile(tmpFile.toPath());
         assertNotNull(taskManager, "Не удалось создать менеджер задач из файла");
-
-        Task task1 = new Task(
-                "Задача 1",
-                "Тестовая задача 1");
-        taskManager.createTask(task1);
-
-        Epic epic1 = new Epic(
-                "Эпик 1",
-                "Тестовый эпик 1");
-        taskManager.createEpic(epic1);
-        Subtask subtask1ForEpic1 = new Subtask(
-                "Подзадача 1.1",
-                "Тестовая подзадача 1 для эпика 1",
-                epic1.getId());
-        taskManager.createSubtask(subtask1ForEpic1);
+        generateTestData(taskManager);
 
         assertNotEquals(tmpFile.length(), 0, "Данные не были записаны в файл");
 
@@ -71,10 +58,47 @@ class FileBackedTaskManagerTest {
 
         int allTasksAmount =
                 taskManager.getTasks().size() +
-                taskManager.getEpics().size() +
-                taskManager.getSubtasks().size();
+                        taskManager.getEpics().size() +
+                        taskManager.getSubtasks().size();
 
         assertEquals(allTasksAmount, 3, "Не все задачи загружены из файла");
     }
 
+    @Test
+    void isManagersFromSameFileEqual() {
+        TaskManager newTaskManager = new FileBackedTaskManager(tmpFile.toPath());
+        generateTestData(newTaskManager);
+
+        var taskManagerFromFile = FileBackedTaskManager.loadFromFile(tmpFile.toPath());
+
+        var tasksSorted = newTaskManager.getTasks().stream().sorted(Comparator.comparingInt(Task::getId)).toList();
+        var tasksFromFileSorted = taskManagerFromFile.getTasks().stream().sorted(Comparator.comparingInt(Task::getId)).toList();
+        assertEquals(tasksSorted, tasksFromFileSorted, "Списки задач не совпадают");
+
+        var epicsSorted = newTaskManager.getEpics().stream().sorted(Comparator.comparingInt(Epic::getId)).toList();
+        var epicsFromFileSorted = taskManagerFromFile.getEpics().stream().sorted(Comparator.comparingInt(Epic::getId)).toList();
+        assertEquals(epicsSorted, epicsFromFileSorted, "Списки эпиков не совпадают");
+
+        var subtasksSorted = newTaskManager.getSubtasks().stream().sorted(Comparator.comparingInt(Subtask::getId)).toList();
+        var subtasksFromFileSorted = taskManagerFromFile.getSubtasks().stream().sorted(Comparator.comparingInt(Subtask::getId)).toList();
+        assertEquals(subtasksSorted, subtasksFromFileSorted, "Списки подзадач не совпадают");
+    }
+
+    private void generateTestData(TaskManager taskManager) {
+        Task task1 = new Task(
+                "Задача 1",
+                "Тестовая задача 1");
+        taskManager.createTask(task1);
+
+        Epic epic1 = new Epic(
+                "Эпик 1",
+                "Тестовый эпик 1");
+        taskManager.createEpic(epic1);
+        Subtask subtask1ForEpic1 = new Subtask(
+                "Подзадача 1.1",
+                "Тестовая подзадача 1 для эпика 1",
+                epic1.getId());
+        taskManager.createSubtask(subtask1ForEpic1);
+
+    }
 }

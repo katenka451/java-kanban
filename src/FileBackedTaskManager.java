@@ -94,7 +94,43 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         save();
     }
 
-    public Task fromString(String value) {
+    public static FileBackedTaskManager loadFromFile(Path tasksFile) {
+        FileBackedTaskManager taskManager = new FileBackedTaskManager(tasksFile);
+
+        String content;
+        try {
+            content = Files.readString(tasksFile);
+        } catch (IOException ex) {
+            throw new ManagerReadException("Ошибка чтения данных");
+        }
+
+        int maxId = 0;
+        String[] splitContent = content.split(System.lineSeparator());
+
+        //Начинаем со второй строки, т.к. первая - это заголовок
+        for (int i = 1; i < splitContent.length; i++) {
+            Task task = taskManager.fromString(splitContent[i]);
+            if (task == null) {
+                continue;
+            }
+            switch (task) {
+                case Epic epic -> taskManager.epicsMap.put(epic.getId(), epic);
+                case Subtask subtask ->
+                        taskManager.epicsMap.get(subtask.getEpicId()).addSubtask(subtask.getId(), subtask);
+                default -> taskManager.tasksMap.put(task.getId(), task);
+            }
+            if (task.getId() > maxId) {
+                maxId = task.getId();
+            }
+        }
+
+        //Обновляем счетчик ID
+        taskManager.setTaskId(maxId + 1);
+
+        return taskManager;
+    }
+
+    private Task fromString(String value) {
         String[] splitRow = value.split(",");
 
         TasksTypes type = TasksTypes.valueOf(splitRow[COLUMN_TYPE]);
@@ -188,38 +224,6 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
                             task.getTaskDescription());
         }
         return taskInString;
-    }
-
-    public static FileBackedTaskManager loadFromFile(Path tasksFile) {
-        FileBackedTaskManager taskManager = new FileBackedTaskManager(tasksFile);
-
-        String content;
-        try {
-            content = Files.readString(tasksFile);
-        } catch (IOException ex) {
-            throw new ManagerReadException("Ошибка чтения данных");
-        }
-
-        int maxId = 0;
-        String[] splitContent = content.split(System.lineSeparator());
-
-        //Начинаем со второй строки, т.к. первая - это заголовок
-        for (int i = 1; i < splitContent.length; i++) {
-            Task task = taskManager.fromString(splitContent[i]);
-            switch (task) {
-                case Epic epic -> taskManager.epicsMap.put(epic.getId(), epic);
-                case Subtask subtask -> taskManager.epicsMap.get(subtask.getEpicId()).addSubtask(subtask.getId(), subtask);
-                default -> taskManager.tasksMap.put(task.getId(), task);
-            }
-            if (task.getId() > maxId) {
-                maxId = task.getId();
-            }
-        }
-
-        //Обновляем счетчик ID
-        taskManager.setTaskId(maxId + 1);
-
-        return taskManager;
     }
 
     public static void main(String[] args) {
