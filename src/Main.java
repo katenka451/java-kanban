@@ -56,11 +56,11 @@ public class Main {
         findTask2 = manager.getTaskById(task2.getId());
         printHistory(manager);
 
-        manager.deleteSubtaskById(subtask3ForEpic1.getId());
-        printHistory(manager);
-
-        manager.deleteEpicById(epic1.getId());
-        printHistory(manager);
+//        manager.deleteSubtaskById(subtask3ForEpic1.getId());
+//        printHistory(manager);
+//
+//        manager.deleteEpicById(epic1.getId());
+//        printHistory(manager);
 
     }
 

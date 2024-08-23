@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Set;
 
 public interface TaskManager {
 
@@ -13,6 +14,8 @@ public interface TaskManager {
     List<Epic> getEpics();
 
     List<Subtask> getSubtasks();
+
+    Set<Task> getPrioritizedTasks();
 
     Task getTaskById(int id);
 
@@ -47,5 +50,7 @@ public interface TaskManager {
     void clearSubtasks();
 
     List<Task> getHistory();
+
+    boolean isTasksOverlapped(Task task);
 
 }
