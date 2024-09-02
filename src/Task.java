@@ -1,9 +1,14 @@
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 public class Task {
 
     protected final String taskName;
     protected final String taskDescription;
     protected int id;
     protected Status taskStatus;
+    protected Duration duration;
+    protected LocalDateTime startTime;
 
     public Task(String taskName, String taskDescription) {
         this.taskName = taskName;
@@ -16,6 +21,8 @@ public class Task {
         this.taskDescription = task.getTaskDescription();
         this.taskStatus = task.getTaskStatus();
         this.id = task.getId();
+        this.duration = task.getDuration() != null ? Duration.ofMinutes(task.getDuration().toMinutes()) : null;
+        this.startTime = task.getStartTime() != null ? LocalDateTime.from(task.getStartTime()) : null;
     }
 
     public int getId() {
@@ -34,12 +41,35 @@ public class Task {
         return taskStatus;
     }
 
+    public Duration getDuration() {
+        return duration;
+    }
+
+    public LocalDateTime getStartTime() {
+        return startTime;
+    }
+
+    public LocalDateTime getEndTime() {
+        if (this.startTime == null || this.duration == null) {
+            return null;
+        }
+        return this.startTime.plusMinutes(this.duration.toMinutes());
+    }
+
     public void setTaskStatus(Status taskStatus) {
         this.taskStatus = taskStatus;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+
+    public void setStartTime(LocalDateTime startTime) {
+        this.startTime = startTime;
     }
 
     @Override

@@ -15,8 +15,8 @@ class InMemoryHistoryManagerTest {
         historyManager = Managers.getDefaultHistory();
 
         task = new Task(
-                "Task1",
-                "Test task1");
+                "Задача 1",
+                "Тестовая задача 1");
     }
 
     @Test

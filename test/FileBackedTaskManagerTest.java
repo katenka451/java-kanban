@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Comparator;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -82,6 +83,15 @@ class FileBackedTaskManagerTest {
         var subtasksSorted = newTaskManager.getSubtasks().stream().sorted(Comparator.comparingInt(Subtask::getId)).toList();
         var subtasksFromFileSorted = taskManagerFromFile.getSubtasks().stream().sorted(Comparator.comparingInt(Subtask::getId)).toList();
         assertEquals(subtasksSorted, subtasksFromFileSorted, "Списки подзадач не совпадают");
+    }
+
+    @Test
+    void testFileReadException() {
+        TaskManager newTaskManager = new FileBackedTaskManager(tmpFile.toPath());
+        generateTestData(newTaskManager);
+
+        assertThrows(ManagerReadException.class, () -> FileBackedTaskManager.loadFromFile(Path.of("M:/Dummy.csv")),
+                    "Ошибка чтения из файла");
     }
 
     private void generateTestData(TaskManager taskManager) {
