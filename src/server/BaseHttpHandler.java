@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 
 public abstract class BaseHttpHandler implements HttpHandler {
 
-    protected final int NOT_FOUND = -1;
-    protected final int NUMBER_EXCEPTION = -2;
+    protected static final int NOT_FOUND = -1;
+    protected static final int NUMBER_EXCEPTION = -2;
     protected Gson gson;
     protected TaskManager taskManager;
 
@@ -82,7 +82,9 @@ public abstract class BaseHttpHandler implements HttpHandler {
     }
 
     protected abstract void handleGetRequest(HttpExchange h) throws IOException;
+
     protected abstract void handlePostRequest(HttpExchange h) throws IOException;
+
     protected abstract void handleDeleteRequest(HttpExchange h) throws IOException;
 
     protected void handleUnknownRequest(HttpExchange h) throws IOException {
