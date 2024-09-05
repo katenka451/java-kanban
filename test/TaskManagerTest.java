@@ -1,3 +1,10 @@
+import taskmanager.FileBackedTaskManager;
+import taskmanager.Managers;
+import taskmanager.TaskManager;
+import model.Epic;
+import model.Status;
+import model.Subtask;
+import model.Task;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -20,7 +27,7 @@ public class TaskManagerTest {
         assertNotNull(taskManager.getEpics().getFirst(), "Эпик не создан");
         assertNotNull(taskManager.getSubtasks().getFirst(), "Подзадача не создана");
 
-        assertEquals(taskManager.getPrioritizedTasks().stream().toList().getFirst().startTime,
+        assertEquals(taskManager.getPrioritizedTasks().stream().toList().getFirst().getStartTime(),
                 LocalDateTime.parse("2024-05-22T21:21:21"),
                 "Некорректная сортировка задач по времени начала");
 
@@ -46,7 +53,7 @@ public class TaskManagerTest {
         taskManager.createTask(task3);
         task3.setDuration(Duration.ofDays(2));
         taskManager.updateTask(task3);
-        assertEquals(taskManager.getTaskById(task3.getId()).duration.toDays(), 2,
+        assertEquals(taskManager.getTaskById(task3.getId()).getDuration().toDays(), 2,
                 "Задачи обновляются некорректно");
 
         taskManager.getEpics().getFirst().getSubtasks().forEach(subtask -> {
