@@ -1,3 +1,5 @@
+package model;
+
 public class Node<T> {
     public Node<T> prev;
     public T task;

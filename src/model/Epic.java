@@ -1,3 +1,5 @@
+package model;
+
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -68,22 +70,40 @@ public class Epic extends Task {
 
     @Override
     public void setTaskStatus(Status taskStatus) {
-        throw new RuntimeException("Epic status cannot be changed manually");
+        throw new RuntimeException("model.Epic status cannot be changed manually");
     }
 
     @Override
     public void setDuration(Duration duration) {
-        throw new RuntimeException("Epic duration cannot be changed manually");
+        throw new RuntimeException("model.Epic duration cannot be changed manually");
     }
 
     @Override
     public void setStartTime(LocalDateTime startTime) {
-        throw new RuntimeException("Epic start time cannot be changed manually");
+        throw new RuntimeException("model.Epic start time cannot be changed manually");
     }
 
     @Override
     public LocalDateTime getEndTime() {
         return endTime;
+    }
+
+    public void updateEpicStatus() {
+        int subtaskNew = 0;
+        int subtaskDone = 0;
+        for (Subtask subtask : subtasksMap.values()) {
+            switch (subtask.getTaskStatus()) {
+                case NEW -> subtaskNew++;
+                case DONE -> subtaskDone++;
+            }
+        }
+        if (subtaskNew == subtasksMap.size()) {
+            this.taskStatus = Status.NEW;
+        } else if (subtaskDone == subtasksMap.size()) {
+            this.taskStatus = Status.DONE;
+        } else {
+            this.taskStatus = Status.IN_PROGRESS;
+        }
     }
 
     private void updateDatesAndDuration() {
@@ -107,21 +127,4 @@ public class Epic extends Task {
                 .orElse(null);
     }
 
-    private void updateEpicStatus() {
-        int subtaskNew = 0;
-        int subtaskDone = 0;
-        for (Subtask subtask : subtasksMap.values()) {
-            switch (subtask.getTaskStatus()) {
-                case NEW -> subtaskNew++;
-                case DONE -> subtaskDone++;
-            }
-        }
-        if (subtaskNew == subtasksMap.size()) {
-            this.taskStatus = Status.NEW;
-        } else if (subtaskDone == subtasksMap.size()) {
-            this.taskStatus = Status.DONE;
-        } else {
-            this.taskStatus = Status.IN_PROGRESS;
-        }
-    }
 }

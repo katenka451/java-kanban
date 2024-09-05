@@ -4,11 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af442682-3d5c-45e8-af2a-3f6c02057e04" name="Changes" comment="sprint7/dev fix project">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af442682-3d5c-45e8-af2a-3f6c02057e04" name="Changes" comment="sprint8/dev tasks tracker (remarks fix)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/gson_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exception/ObjectNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exception/TasksOverlappedException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/BaseHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/DurationTypeAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/EpicHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/HistoryHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/HttpTaskServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/JsonError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/LocalDateTimeTypeAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/PrioritizedTasksHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/StatusTypeAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/SubtaskHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/TaskHttpHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/HttpTaskManagerEpicsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/HttpTaskManagerHistoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/HttpTaskManagerPrioritizedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/HttpTaskManagerSubtasksTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/HttpTaskManagerTasksTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java-kanban.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-kanban.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Epic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Epic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileBackedTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/FileBackedTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/HistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InMemoryHistoryManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/InMemoryHistoryManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InMemoryTaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/InMemoryTaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManagerReadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/ManagerReadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ManagerSaveException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/ManagerSaveException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Managers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/Managers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Subtask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Subtask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taskmanager/TaskManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TasksTypes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/TasksTypes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/FileBackedTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/HistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/HistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/InMemoryHistoryManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/InMemoryHistoryManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/InMemoryTaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/InMemoryTaskManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/ManagersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ManagersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TaskManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TaskManagerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +58,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,13 +95,35 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.FileBackedTaskManager.executor": "Run",
+    "Application.HttpTaskServer.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.All in java-kanban.executor": "Run",
+    "JUnit.BaseTaskManagerTest.executor": "Run",
     "JUnit.FileBackedTaskManagerTest.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.isManagersFromSameFileEqual.executor": "Run",
     "JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile.executor": "Run",
+    "JUnit.FileBackedTaskManagerTest.testFileReadException.executor": "Debug",
+    "JUnit.HistoryManagerTest.executor": "Debug",
+    "JUnit.HistoryManagerTest.fullTestScenario.executor": "Run",
+    "JUnit.HttpTaskManagerEpicsTest.executor": "Run",
+    "JUnit.HttpTaskManagerHistoryTest.executor": "Run",
+    "JUnit.HttpTaskManagerHistoryTest.getTaskManagerHistory.executor": "Debug",
+    "JUnit.HttpTaskManagerPrioritizedTest.executor": "Run",
+    "JUnit.HttpTaskManagerPrioritizedTest.getPrioritizedList.executor": "Run",
+    "JUnit.HttpTaskManagerSubtasksTest.executor": "Run",
+    "JUnit.HttpTaskManagerSubtasksTest.testAddSubtask.executor": "Run",
+    "JUnit.HttpTaskManagerTasksTest.executor": "Run",
+    "JUnit.HttpTaskManagerTasksTest.testAddTask.executor": "Run",
+    "JUnit.HttpTaskManagerTasksTest.testDeleteTask.executor": "Debug",
+    "JUnit.HttpTaskManagerTasksTest.testGetTaskById.executor": "Debug",
+    "JUnit.HttpTaskManagerTasksTest.testGetTasksList.executor": "Debug",
+    "JUnit.HttpTaskManagerTasksTest.testUpdateTask.executor": "Debug",
     "JUnit.InMemoryHistoryManagerTest.executor": "Run",
     "JUnit.InMemoryTaskManagerTest.executor": "Run",
     "JUnit.ManagersTest.executor": "Run",
+    "JUnit.TaskManagerTest.executor": "Run",
+    "JUnit.TaskManagerTest.fullTestScenario.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -72,15 +132,19 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/java-kanban",
-    "project.structure.last.edited": "Project",
+    "last_opened_file_path": "D:/Projects/sprint9",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="server" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -88,59 +152,68 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FileBackedTaskManagerTest">
-    <configuration name="FileBackedTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HttpTaskManagerPrioritizedTest.getPrioritizedList">
+    <configuration name="HttpTaskManagerEpicsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskManagerEpicsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FileBackedTaskManagerTest.loadAndSaveEmptyFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskManagerHistoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="FileBackedTaskManagerTest" />
-      <option name="METHOD_NAME" value="loadAndSaveEmptyFile" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskManagerHistoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpTaskManagerHistoryTest.getTaskManagerHistory" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-kanban" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskManagerHistoryTest" />
+      <option name="METHOD_NAME" value="getTaskManagerHistory" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryHistoryManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskManagerPrioritizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InMemoryHistoryManagerTest" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskManagerPrioritizedTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InMemoryTaskManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HttpTaskManagerPrioritizedTest.getPrioritizedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-kanban" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="InMemoryTaskManagerTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="HttpTaskManagerPrioritizedTest" />
+      <option name="METHOD_NAME" value="getPrioritizedList" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-      <item itemvalue="JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile" />
-      <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
-      <item itemvalue="JUnit.InMemoryTaskManagerTest" />
+      <item itemvalue="JUnit.HttpTaskManagerEpicsTest" />
+      <item itemvalue="JUnit.HttpTaskManagerHistoryTest" />
+      <item itemvalue="JUnit.HttpTaskManagerHistoryTest.getTaskManagerHistory" />
+      <item itemvalue="JUnit.HttpTaskManagerPrioritizedTest" />
+      <item itemvalue="JUnit.HttpTaskManagerPrioritizedTest.getPrioritizedList" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryTaskManagerTest" />
-        <item itemvalue="JUnit.InMemoryHistoryManagerTest" />
-        <item itemvalue="JUnit.FileBackedTaskManagerTest.loadAndSaveEmptyFile" />
+        <item itemvalue="JUnit.HttpTaskManagerPrioritizedTest.getPrioritizedList" />
+        <item itemvalue="JUnit.HttpTaskManagerPrioritizedTest" />
+        <item itemvalue="JUnit.HttpTaskManagerHistoryTest" />
+        <item itemvalue="JUnit.HttpTaskManagerHistoryTest.getTaskManagerHistory" />
+        <item itemvalue="JUnit.HttpTaskManagerEpicsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -225,7 +298,39 @@
       <option name="project" value="LOCAL" />
       <updated>1723201361113</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="sprint7/dev fix test">
+      <option name="closed" value="true" />
+      <created>1723202027187</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1723202027187</updated>
+    </task>
+    <task id="LOCAL-00011" summary="sprint7/dev tasks tracker with file storage (remarks fix)">
+      <option name="closed" value="true" />
+      <created>1723458254808</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1723458254808</updated>
+    </task>
+    <task id="LOCAL-00012" summary="sprint8/dev tasks tracker (time and duration)">
+      <option name="closed" value="true" />
+      <created>1724407415052</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1724407415052</updated>
+    </task>
+    <task id="LOCAL-00013" summary="sprint8/dev tasks tracker (remarks fix)">
+      <option name="closed" value="true" />
+      <created>1724487959705</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1724487959705</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -239,7 +344,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="sprint_7-solution-in-file-manager" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -261,7 +366,11 @@
     <MESSAGE value="sprint6/dev tasks tracker (code style fix 2)" />
     <MESSAGE value="sprint6/dev tasks tracker (code style fix 3)" />
     <MESSAGE value="sprint7/dev fix project" />
+    <MESSAGE value="sprint7/dev fix test" />
     <MESSAGE value="sprint7/dev tasks tracker with file storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="sprint7/dev tasks tracker with file storage" />
+    <MESSAGE value="sprint7/dev tasks tracker with file storage (remarks fix)" />
+    <MESSAGE value="sprint8/dev tasks tracker (time and duration)" />
+    <MESSAGE value="sprint8/dev tasks tracker (remarks fix)" />
+    <option name="LAST_COMMIT_MESSAGE" value="sprint8/dev tasks tracker (remarks fix)" />
   </component>
 </project>

@@ -1,14 +1,17 @@
+package taskmanager;
+
+import exception.ManagerReadException;
+import exception.ManagerSaveException;
+import model.*;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-import java.util.Set;
 
 public class FileBackedTaskManager extends InMemoryTaskManager {
 
@@ -258,72 +261,4 @@ public class FileBackedTaskManager extends InMemoryTaskManager {
         return taskInString;
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Введите путь к файлу/директории: ");
-        String enteredPath = scanner.nextLine();
-        Path tasksFile = Paths.get(enteredPath);
-
-        if (!Files.exists(tasksFile)) {
-            System.out.println("Введённый путь не существует.");
-            return;
-        }
-
-        TaskManager manager = loadFromFile(tasksFile);
-
-        Task task1 = new Task(
-                "Задача 1",
-                "Тестовая задача 1");
-        task1.setStartTime(LocalDateTime.parse("2024-08-01T21:21:21"));
-        task1.setDuration(Duration.ofDays(1));
-        manager.createTask(task1);
-
-        Task task2 = new Task(
-                "Задача 2",
-                "Тестовая задача 2");
-        manager.createTask(task2);
-
-        Epic epic1 = new Epic(
-                "Эпик 1",
-                "Тестовый эпик 1");
-        manager.createEpic(epic1);
-        Subtask subtask1ForEpic1 = new Subtask(
-                "Подзадача 1.1",
-                "Тестовая подзадача 1 для эпика 1",
-                epic1.getId());
-        subtask1ForEpic1.setStartTime(LocalDateTime.now());
-        subtask1ForEpic1.setDuration(Duration.ofDays(3));
-        manager.createSubtask(subtask1ForEpic1);
-
-        Subtask subtask2ForEpic1 = new Subtask(
-                "Подзадача 1.2",
-                "Тестовая подзадача 2 для эпика 1",
-                epic1.getId());
-        subtask2ForEpic1.setStartTime(LocalDateTime.parse("2024-07-15T21:21:21"));
-        subtask2ForEpic1.setDuration(Duration.ofDays(1));
-        manager.createSubtask(subtask2ForEpic1);
-
-        Subtask subtask3ForEpic1 = new Subtask(
-                "Подзадача 1.3",
-                "Тестовая подзадача 3 для эпика 1",
-                epic1.getId());
-        subtask3ForEpic1.setTaskStatus(Status.IN_PROGRESS);
-        subtask3ForEpic1.setStartTime(LocalDateTime.parse("2024-08-15T21:21:21"));
-        subtask3ForEpic1.setDuration(Duration.ofDays(5));
-        manager.createSubtask(subtask3ForEpic1);
-
-        System.out.println(epic1.getStartTime());
-        System.out.println(epic1.getEndTime());
-
-        Set<Task> sortedTasks = manager.getPrioritizedTasks();
-        manager.clearSubtasks();
-        sortedTasks = manager.getPrioritizedTasks();
-
-        Epic epic2 = new Epic(
-                "Эпик 2",
-                "Тестовый эпик 2");
-        manager.createEpic(epic2);
-
-    }
 }

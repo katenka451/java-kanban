@@ -1,3 +1,10 @@
+import taskmanager.HistoryManager;
+import taskmanager.Managers;
+import taskmanager.TaskManager;
+import model.Epic;
+import model.Status;
+import model.Subtask;
+import model.Task;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
